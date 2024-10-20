@@ -5,54 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IZ Consultancy Inc. - Home</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <h1>IZ Consultancy Inc.</h1>
-                <span class="tagline">building an equitable future</span>
+                <div>
+                    <h1>IZ Consultancy Inc.</h1>
+                    <span class="tagline">Build an equitable future</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="rentals.html">Rentals</a>
+                            <ul class="dropdown-content">
+                                <li><a href="1209-n-main-st.html">1209 N Main St</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="rent-to-own.html">Rent to Own</a></li>
+                        <li><a href="invest-in-real-estate.html">Invest in Real Estate</a></li>
+                        <li><a href="what-we-do.html">What We Do</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="rentals.html">Rentals</a>
-                        <ul class="dropdown-content">
-                            <li><a href="1209-n-main-st.html">1209 N Main St</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="rent-to-own.html">Rent to Own</a></li>
-                    <li><a href="invest-in-real-estate.html">Invest in Real Estate</a></li>
-                    <li><a href="what-we-do.html">What We Do</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-                </ul>
-            </nav>
         </div>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-R0RK1HXPD5"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-R0RK1HXPD5');
-        </script>
     </header>
 
-    <div class="breadcrumb">
+    <div class="mobile-menu">
+        <div class="close-menu">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+            <li><a href="rent-to-own.html">Rent to Own</a></li>
+            <li><a href="invest-in-real-estate.html">Invest in Real Estate</a></li>
+            <li><a href="what-we-do.html">What We Do</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <div class="hero">
         <div class="container">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-            </ul>
+            <h2>Re-building the American Dream</h2>
+            <p>We are helping {re-build} freedom and equity, to empower and foster communities, making them lucrative investments for people. It’s not just about owning a home alone anymore, it's about building assets verses liabilities.</p>
         </div>
     </div>
 
     <main class="container">
-        <h2>Building an equitable community and investments for those who pursue the American Dream</h2>
-        <p>We specialize in providing high-quality rental properties, rent-to-own opportunities, and real estate investment solutions across the United States.</p>
-        
+        <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-item">
                 <img src="images/forrent.jpg" alt="Rentals">
@@ -89,5 +97,31 @@
             <p>&copy; 2023 IZ Consultancy Inc. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R0RK1HXPD5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-R0RK1HXPD5');
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const closeMenu = document.querySelector('.close-menu');
+
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.add('active');
+            });
+
+            closeMenu.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
