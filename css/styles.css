@@ -394,9 +394,8 @@ footer {
     }
 
     .hamburger-menu {
-        display: block;
-        font-size: 1.5rem;
-        cursor: pointer;
+        flex: 0 0 auto;
+        margin-left: 15px;
     }
 
     nav {
@@ -456,5 +455,41 @@ footer {
 
     .property-details {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 390px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .service-item {
+        padding: 1rem;
+    }
+
+    .service-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 }
