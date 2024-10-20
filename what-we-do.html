@@ -5,30 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What We Do - IZ Consultancy Inc.</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=blur_linear" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <h1>IZ Consultancy Inc.</h1>
-                <span class="tagline">building an equitable future</span>
+                <div>
+                    <h1><span class="material-symbols-outlined">
+                        blur_linear
+                        </span> IZ Consultancy Inc.</h1>
+                    <span class="tagline">Build an equitable future</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a href="rentals.html">Rentals</a>
+                            <ul class="dropdown-content">
+                                <li><a href="1209-n-main-st.html">1209 N Main St</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="rent-to-own.html">Rent to Own</a></li>
+                        <li><a href="invest-in-real-estate.html">Invest in Real Estate</a></li>
+                        <li><a href="what-we-do.html">What We Do</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="rentals.html">Rentals</a>
-                        <ul class="dropdown-content">
-                            <li><a href="1209-n-main-st.html">1209 N Main St</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="rent-to-own.html">Rent to Own</a></li>
-                    <li><a href="invest-in-real-estate.html">Invest in Real Estate</a></li>
-                    <li><a href="what-we-do.html">What We Do</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-                </ul>
-            </nav>
         </div>
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-R0RK1HXPD5"></script>
@@ -41,6 +50,20 @@
         </script>
     </header>
 
+    <div class="mobile-menu">
+        <div class="close-menu">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+            <li><a href="rent-to-own.html">Rent to Own</a></li>
+            <li><a href="invest-in-real-estate.html">Invest in Real Estate</a></li>
+            <li><a href="what-we-do.html">What We Do</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+    </div>
+
     <div class="breadcrumb">
         <div class="container">
             <ul>
@@ -52,25 +75,39 @@
 
     <main class="container">
         <h2>What We Do</h2>
-        <p>At IZ Consultancy Inc., we specialize in providing high-quality housing solutions for families in Rockford, Illinois. Our services include:</p>
+        <p>At IZ Consultancy Inc., we specialize in providing high-quality housing solutions for families across Opportunity Zones in the United States. Our services include:</p>
         <ul>
             <li><strong>Property Rentals:</strong> We offer a range of rental properties suitable for families, ensuring comfortable and well-maintained homes.</li>
             <li><strong>Rent-to-Own Programs:</strong> We provide opportunities for families to transition from renting to homeownership through our rent-to-own options.</li>
             <li><strong>Real Estate Investment:</strong> We help W2 investors build passive income through lucrative rental properties.</li>
             <li><strong>Property Management:</strong> Our team handles all aspects of property management, ensuring a smooth experience for our tenants and investors.</li>
             <li><strong>Family-Focused Housing:</strong> We prioritize creating living spaces that cater to the needs of families, with a focus on safety, comfort, and convenience.</li>
-            <li><strong>Consultation Services:</strong> We offer guidance and advice to families navigating the rental, home-buying, and real estate investment processes in Rockford.</li>
+            <li><strong>Consultation Services:</strong> We offer guidance and advice to families navigating the rental, home-buying, and real estate investment processes.</li>
         </ul>
-        <p>Our mission is to help families and investors find their ideal real estate solutions and support them in their journey towards stable, long-term housing and financial growth. Whether you're looking to rent, considering a rent-to-own option, or want to invest in real estate, IZ Consultancy Inc. is here to assist you every step of the way.</p>
+        <p>With {re-build}, we help families and investors find their ideal real estate solutions and support them in their journey towards stable, long-term housing and financial growth. Whether you're looking to rent, considering a rent-to-own option, or want to invest in real estate, IZ Consultancy Inc. is here to assist you every step of the way.</p>
     </main>
 
     <footer>
         <div class="container">
-            <p>IZ Consultancy Inc.</p>
-            <p>303 N Main St. 5th Floor, Office 502, Rockford IL 61101</p>
-            <p>Phone: 630-592-8509</p>
-            <p>&copy; 2023 IZ Consultancy Inc. All rights reserved.</p>
+            <p>&copy; 2024 IZ Consultancy Inc. All Rights Reserved.</p>
+            <p>Build an equitable future&trade; is a trademark and protected by US laws.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const closeMenu = document.querySelector('.close-menu');
+
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.add('active');
+            });
+
+            closeMenu.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
