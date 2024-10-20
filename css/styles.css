@@ -2,6 +2,8 @@
 
 html, body {
     height: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -21,6 +23,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 header {
@@ -368,11 +371,32 @@ footer {
 }
 
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
+    }
+
+    header {
+        padding: 0.5rem 0;
+    }
+    
     .header-content {
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
+    }
+
+    .header-content > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
     }
 
     nav {
