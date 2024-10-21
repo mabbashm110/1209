@@ -7,9 +7,99 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=blur_linear" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">    
+    <style>
+        .property-images {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .main-image-container {
+            flex: 7;
+            position: relative;
+        }
+        .main-image {
+            max-height: 500px;
+            overflow: hidden;
+        }
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .prev-image { left: 10px; }
+        .next-image { right: 10px; }
+        .thumbnail-images {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .thumbnail {
+            cursor: pointer;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .thumbnail:hover img {
+            transform: scale(1.1);
+        }
+        .thumbnail.active {
+            border: 2px solid #8BD8BD;
+        }
+        .alt-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .property-images {
+                flex-direction: column;
+            }
+            .thumbnail-images {
+                flex-direction: row;
+                max-height: none;
+                overflow-x: auto;
+                overflow-y: hidden;
+            }
+            .thumbnail {
+                flex: 0 0 auto;
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header and navigation remain unchanged -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -78,42 +168,32 @@
         <h2>1209 N Main St, Rockford IL, 61103</h2>
         
         <div class="property-images">
-            <div class="main-image">
-                <div class="placeholder">Main Image Coming Soon</div>
+            <div class="main-image-container">
+                <div class="main-image">
+                    <img src="images/1209/Exterior1.jpeg" alt="1209 N Main St Exterior" id="main-image">
+                    <div class="alt-text" id="alt-text">1209 N Main St Exterior</div>
+                </div>
+                <div class="image-nav prev-image" onclick="changeImage(-1)">&#10094;</div>
+                <div class="image-nav next-image" onclick="changeImage(1)">&#10095;</div>
             </div>
-            <div class="thumbnail-images">
-                <div class="placeholder">Living Room</div>
-                <div class="placeholder">Dining Room</div>
-                <div class="placeholder">Kitchen</div>
-                <div class="placeholder">Bedroom</div>
-                <div class="placeholder">Bathroom</div>
-            </div>
-        </div>
-
-        <div class="property-details">
-            <div class="detail">
-                <div class="detail-label">Bedrooms</div>
-                <div class="detail-value">5</div>
-            </div>
-            <div class="detail">
-                <div class="detail-label">Bathrooms</div>
-                <div class="detail-value">2</div>
-            </div>
-            <div class="detail">
-                <div class="detail-label">Living Rooms</div>
-                <div class="detail-value">3</div>
-            </div>
-            <div class="detail">
-                <div class="detail-label">Dining Room</div>
-                <div class="detail-value">1</div>
-            </div>
-            <div class="detail">
-                <div class="detail-label">Rent</div>
-                <div class="detail-value">$1,800/month</div>
-            </div>
-            <div class="detail">
-                <div class="detail-label">Utilities</div>
-                <div class="detail-value">Not included</div>
+            <div class="thumbnail-images" id="thumbnail-container">
+                <div class="thumbnail" onclick="setImage(0)"><img src="images/1209/Exterior1.jpeg" alt="Exterior"></div>
+                <div class="thumbnail" onclick="setImage(1)"><img src="images/1209/FrontView2.jpeg" alt="Front View"></div>
+                <div class="thumbnail" onclick="setImage(2)"><img src="images/1209/Living1Lower.jpeg" alt="Lower Living Room"></div>
+                <div class="thumbnail" onclick="setImage(3)"><img src="images/1209/Living2Upper.jpeg" alt="Upper Living Room"></div>
+                <div class="thumbnail" onclick="setImage(4)"><img src="images/1209/Living3Upper.jpeg" alt="Upper Living Room 2"></div>
+                <div class="thumbnail" onclick="setImage(5)"><img src="images/1209/Dining1Lower.jpeg" alt="Dining Room"></div>
+                <div class="thumbnail" onclick="setImage(6)"><img src="images/1209/Kitchen.jpeg" alt="Kitchen"></div>
+                <div class="thumbnail" onclick="setImage(7)"><img src="images/1209/Room1Lower.jpeg" alt="Lower Bedroom 1"></div>
+                <div class="thumbnail" onclick="setImage(8)"><img src="images/1209/Room2Lower.jpeg" alt="Lower Bedroom 2"></div>
+                <div class="thumbnail" onclick="setImage(9)"><img src="images/1209/Room3Upper.jpeg" alt="Upper Bedroom 1"></div>
+                <div class="thumbnail" onclick="setImage(10)"><img src="images/1209/Room4Upper.jpeg" alt="Upper Bedroom 2"></div>
+                <div class="thumbnail" onclick="setImage(11)"><img src="images/1209/Room5Upper.jpeg" alt="Upper Bedroom 3"></div>
+                <div class="thumbnail" onclick="setImage(12)"><img src="images/1209/Bathroom1Lower.jpeg" alt="Lower Bathroom"></div>
+                <div class="thumbnail" onclick="setImage(13)"><img src="images/1209/Bathroom2Upper.jpeg" alt="Upper Bathroom"></div>
+                <div class="thumbnail" onclick="setImage(14)"><img src="images/1209/BalconyLiving3.jpeg" alt="Balcony"></div>
+                <div class="thumbnail" onclick="setImage(15)"><img src="images/1209/BackDeckView.jpeg" alt="Back Deck View"></div>
+                <div class="thumbnail" onclick="setImage(16)"><img src="images/1209/GarageView1.jpeg" alt="Garage View"></div>
             </div>
         </div>
 
@@ -141,19 +221,74 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger-menu');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const closeMenu = document.querySelector('.close-menu');
+        const images = [
+            'images/1209/Exterior1.jpeg',
+            'images/1209/FrontView2.jpeg',
+            'images/1209/Living1Lower.jpeg',
+            'images/1209/Living2Upper.jpeg',
+            'images/1209/Living3Upper.jpeg',
+            'images/1209/Dining1Lower.jpeg',
+            'images/1209/Kitchen.jpeg',
+            'images/1209/Room1Lower.jpeg',
+            'images/1209/Room2Lower.jpeg',
+            'images/1209/Room3Upper.jpeg',
+            'images/1209/Room4Upper.jpeg',
+            'images/1209/Room5Upper.jpeg',
+            'images/1209/Bathroom1Lower.jpeg',
+            'images/1209/Bathroom2Upper.jpeg',
+            'images/1209/BalconyLiving3.jpeg',
+            'images/1209/BackDeckView.jpeg',
+            'images/1209/GarageView1.jpeg'
+        ];
+        let currentImageIndex = 0;
 
-            hamburger.addEventListener('click', function() {
-                mobileMenu.classList.add('active');
-            });
+        function setImage(index) {
+            currentImageIndex = index;
+            const mainImage = document.getElementById('main-image');
+            mainImage.src = images[index];
+            mainImage.alt = document.querySelector(`.thumbnail:nth-child(${index + 1}) img`).alt;
+            document.getElementById('alt-text').textContent = mainImage.alt;
+            updateActiveThumbnail();
+        }
 
-            closeMenu.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            setImage(currentImageIndex);
+        }
+
+        function updateActiveThumbnail() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                if (index === currentImageIndex) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
             });
+        }
+
+        // Initialize the first thumbnail as active
+        updateActiveThumbnail();
+
+        // Touch swipe functionality
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const mainImage = document.querySelector('.main-image');
+
+        mainImage.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
         });
+
+        mainImage.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX) changeImage(1); // Swipe left
+            if (touchEndX > touchStartX) changeImage(-1); // Swipe right
+        }
     </script>
 </body>
 </html>
